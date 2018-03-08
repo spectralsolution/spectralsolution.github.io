@@ -1,1 +1,2 @@
-# spectralsolution.github.io
+# spectralsolution
+Hello World ;)
