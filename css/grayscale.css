@@ -255,46 +255,6 @@ a.active-nav {
     }
 }
 
-.btn-circle {
-    width: 70px;
-    height: 70px;
-    margin-top: 15px;
-    padding: 7px 16px;
-    border: 2px solid #fff;
-    border-radius: 100%!important;
-    font-size: 40px;
-    color: #fff;
-    background: 0 0;
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
-}
-
-.btn-circle:hover,
-.btn-circle:focus {
-    outline: 0;
-    color: #fff;
-    background: rgba(255,255,255,.1);
-}
-
-.btn-circle i.animated {
-    -webkit-transition-property: -webkit-transform;
-    -webkit-transition-duration: 1s;
-    -moz-transition-property: -moz-transform;
-    -moz-transition-duration: 1s;
-}
-
-.btn-circle:hover i.animated {
-    -webkit-animation-name: pulse;
-    -moz-animation-name: pulse;
-    -webkit-animation-duration: 1.5s;
-    -moz-animation-duration: 1.5s;
-    -webkit-animation-iteration-count: infinite;
-    -moz-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;
-    -moz-animation-timing-function: linear;
-}
-
 @-webkit-keyframes pulse {
     0% {
         -webkit-transform: scale(1);
@@ -630,6 +590,10 @@ p {
   color: var(--spectral_orange);
 }
 
+.background-orange {
+  background-color: var(--spectral_orange);
+  color: white;
+}
 .secondary-section {
   background-color: var(--spectral-secondary-background);
   color: black;
@@ -656,6 +620,8 @@ p {
 
 .title-div {
   padding-bottom: 30px;
+  padding-left:30px;
+  padding-right:30px;
 }
 
 
@@ -670,11 +636,16 @@ p {
   background-size: cover;
 }
 #wrap-irrigation {
-  background-image: url(../img/backgrounds/yolomedium.jpg);
-  /* background-position: center; */
+  background-image: url(../img/backgrounds/impact_sprinkler.jpg);
   background-size: cover;
+  /* background-position: center; */
 }
 #wrap-pest {
+  background-image: url(../img/backgrounds/Harissina_amer.jpg);
+  background-position: center;
+  background-size: cover;
+}
+#wrap-disease {
   background-image: url(../img/backgrounds/disease-thin.jpg);
   background-position: center;
 }
@@ -688,9 +659,22 @@ p {
 }
 #wrap-intro {
   background-image: url(../img/backgrounds/vineyard-background.jpg);
-  /* background-position: center; */
   background-size: cover;
   height: 100vh;
+}
+#wrap-solutions {
+  background-image: url(../img/backgrounds/grape1.jpg);
+  background-size: cover;
+}
+#wrap-soil {
+  background-image: url(../img/backgrounds/soil.jpg);
+  background-size: cover;
+  background-position: center;
+}
+#wrap-weeds {
+  background-image: url(../img/backgrounds/dandelion-seeds.jpg);
+  background-size: cover;
+  background-position: center;
 }
 
 .wrap-image {
@@ -702,7 +686,7 @@ p {
 }
 
 .wrap-image-thin {
-    height: 75vh;
+    height: 60vh;
 }
 
 @media (max-width: 800px) {
@@ -739,6 +723,36 @@ p {
   max-width: 250px;
 }
 
+.app-icon {
+  max-width: 100px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--spectral_orange);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.7);
+  background-color: white;
+}
+.app-icon:hover {
+  max-width: 100px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--spectral_orange);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: none;
+}
+.clean-icon {
+  border: none;
+  box-shadow: none;
+}
+
+.analysis-app-icon-text {
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 600;
+}
+
 .solution-package {
   border-style: solid;
   border-width: 1px;
@@ -746,4 +760,9 @@ p {
   padding-left: 15px;
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.input-group {
+  padding-top: 15px;
+  padding-bottom:15px;
 }

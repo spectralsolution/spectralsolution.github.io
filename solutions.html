@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="spectralSolution">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,9 +16,11 @@
     <link href="css/animations.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/ngBuy.js"></script>
 </head>
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-controller="solutionsController">
 
     <!-- Navigation -->
     <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -53,7 +55,7 @@
                         <a class="page-scroll" href="./company.html">Company</a>
                     </li>
                     <li style="padding-left:5px; padding-right5px;">
-                        <a class="page-scroll" href="./index.html">Contact</a>
+                        <a class="page-scroll" href="./contact.html">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -65,7 +67,7 @@
     <!-- Solutions -->
     <section class="image-section text-center wrap">
       <!-- This contains the image background -->
-      <div class="wrap-image">
+      <div class="wrap-image" id="wrap-solutions">
         <!-- This contains the text and assets to display on top of the image -->
           <div class="wrap-image-text">
             <div class="title-div align-middle">
@@ -74,6 +76,7 @@
           </div>
           <div class="col-md-8 col-md-offset-2">
             <p>After every fly-over, we’ll provide a map with our analyses and a detailed report summarizing insights from our data along with recommendations from our extensive team of growers, scientists and consultants.</p>
+            <a class="btn btn-lg btn-spectral-dark-teal" href="/buy">Book Flights Now</a>
           </div>
       </div>
     </section>
@@ -85,26 +88,53 @@
           <div class="title-div">
             <h1 class="brand-font">Analysis Products</h1>
             <h2 class="brand-font-subheading">Each fly-over comes loaded with insight.</h2>
-            <!-- <a class="btn btn-lg btn-spectral-dark-teal" href="/buy">Book Flights Now</a> -->
           </div>
         </div>
-
       </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+          <img class="app-icon" src="./img/np/orange/health.png" alt="" ng-click="pageScroll('health')">
+          <p class="analysis-app-icon-text">crop health</p>
+        </div>
+        <div class="col-md-2">
+          <img class="app-icon" src="./img/np/orange/sprinkler.png" alt="" ng-click="pageScroll('irrigation')">
+          <p class="analysis-app-icon-text">irrigation</p>
+        </div>
+        <div class="col-md-2">
+          <img class="app-icon" src="./img/np/orange/chemical.png" alt="" ng-click="pageScroll('soil')">
+          <p class="analysis-app-icon-text">soil nutrients</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2 col-md-offset-3">
+          <img class="app-icon" src="./img/np/orange/locust_square.png" alt="" ng-click="pageScroll('pests')">
+          <p class="analysis-app-icon-text">Pests</p>
+        </div>
+        <div class="col-md-2">
+          <img class="app-icon" src="./img/np/orange/biohazard.png" alt="" ng-click="pageScroll('disease')">
+          <p class="analysis-app-icon-text">disease</p>
+        </div>
+        <div class="col-md-2">
+          <img class="app-icon" src="./img/np/orange/weeds.png" alt="" ng-click="pageScroll('weeds')">
+          <p class="analysis-app-icon-text">weeds</p>
+        </div>
+      </div>
+
     </section>
 
     <!-- Crop Health  -->
-    <section class="image-section text-center wrap">
+    <section class="image-section text-center wrap" id="health">
       <!-- This contains the image background -->
       <div class="wrap-image wrap-image-thin" id="wrap-crop-health">
         <!-- This contains the text and assets to display on top of the image -->
           <div class="wrap-image-text wrap-image-text-thin">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-6 col-md-offset-3">
+                <img class="app-icon clean-icon" src="./img/np/orange/health.png" alt="">
                 <h1 class="brand-font-white text-center">Crop Health</h1>
-                <img class="solution-icon" src="./img/np/health_orange.png" alt="">
             </div>
           </div>
       </div>
-      <div class="secondary-section">
+      <div class="container secondary-section">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <p>
@@ -116,18 +146,18 @@
     </section>
 
     <!-- Irrigation Efficiency  -->
-    <section class="image-section text-center wrap">
+    <section class="image-section text-center wrap" id="irrigation">
       <!-- This contains the image background -->
       <div class="wrap-image wrap-image-thin" id="wrap-irrigation">
         <!-- This contains the text and assets to display on top of the image -->
           <div class="wrap-image-text wrap-image-text-thin">
-            <div class="col-md-4 col-md-offset-4">
+            <div class="col-md-6 col-md-offset-3">
+                <img class="app-icon clean-icon" src="./img/np/orange/sprinkler.png" alt="">
                 <h1 class="brand-font-white text-center">Irrigation Efficiency</h1>
-                <img class="solution-icon" src="./img/np/sprinkler.png" alt="">
             </div>
           </div>
       </div>
-      <div class="secondary-section">
+      <div class="container secondary-section">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <p>
@@ -139,19 +169,90 @@
       </div>
     </section>
 
-    <!-- Pests & Disease  -->
-    <section class="image-section text-center wrap">
+    <!-- Soil Nutrients  -->
+    <section class="image-section text-center wrap" id="soil">
+      <!-- This contains the image background -->
+      <div class="wrap-image wrap-image-thin" id="wrap-soil">
+        <!-- This contains the text and assets to display on top of the image -->
+          <div class="wrap-image-text wrap-image-text-thin">
+            <div class="col-md-6 col-md-offset-3">
+                <img class="app-icon clean-icon" src="./img/np/orange/chemical.png" alt="">
+                <h1 class="brand-font-white text-center">Soil Nutrients</h1>
+            </div>
+          </div>
+      </div>
+      <div class="container secondary-section">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <p>
+              Measure growth performance to improve management decisions. Identify regions of stress and the type of stress (water, nutrients, pests/disease).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pests  -->
+    <section class="image-section text-center wrap" id="pests">
       <!-- This contains the image background -->
       <div class="wrap-image wrap-image-thin" id="wrap-pest">
         <!-- This contains the text and assets to display on top of the image -->
           <div class="wrap-image-text wrap-image-text-thin">
-            <div class="col-md-4 col-md-offset-4">
-                <h1 class="brand-font-white text-center">Pests and disease</h1>
-                <img class="solution-icon" src="./img/np/locust.png" alt="">
+            <div class="col-md-6 col-md-offset-3">
+                <img class="app-icon clean-icon" src="./img/np/orange/locust_square.png" alt="">
+                <h1 class="brand-font-white text-center">Pests</h1>
             </div>
           </div>
       </div>
-      <div class="secondary-section">
+      <div class="container secondary-section">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <p>
+              Locate pest and disease outbreaks early to minimize losses. Identify hotspots for immediate attention and proper management.
+            </p>
+            <p>We can detect invasive species and measure the relative surface area they cover by identifying its characteristic spectral data and running programs to classify and isolate on maps or imagery where the invasive species is located.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disease  -->
+    <section class="image-section text-center wrap" id="disease">
+      <!-- This contains the image background -->
+      <div class="wrap-image wrap-image-thin" id="wrap-disease">
+        <!-- This contains the text and assets to display on top of the image -->
+          <div class="wrap-image-text wrap-image-text-thin">
+            <div class="col-md-6 col-md-offset-3">
+                <img class="app-icon clean-icon" src="./img/np/orange/biohazard.png" alt="">
+                <h1 class="brand-font-white text-center">Disease</h1>
+            </div>
+          </div>
+      </div>
+      <div class="container secondary-section">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <p>
+              Locate pest and disease outbreaks early to minimize losses. Identify hotspots for immediate attention and proper management.
+            </p>
+            <p>We can detect invasive species and measure the relative surface area they cover by identifying its characteristic spectral data and running programs to classify and isolate on maps or imagery where the invasive species is located.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weeds  -->
+    <section class="image-section text-center wrap" id="weeds">
+      <!-- This contains the image background -->
+      <div class="wrap-image wrap-image-thin" id="wrap-weeds">
+        <!-- This contains the text and assets to display on top of the image -->
+          <div class="wrap-image-text wrap-image-text-thin">
+            <div class="col-md-6 col-md-offset-3">
+                <img class="app-icon clean-icon" src="./img/np/orange/weeds.png" alt="">
+                <h1 class="brand-font-white text-center">Weeds</h1>
+            </div>
+          </div>
+      </div>
+      <div class="container secondary-section">
         <div class="row">
           <div class="col-md-8 col-md-offset-2">
             <p>
@@ -171,7 +272,7 @@
           <div class="title-div">
             <h1 class="brand-font">Get all of these solutions today</h1>
           </div>
-          <a class="btn btn-lg btn-spectral-dark-teal" href="/buy">Book Flights Now</a>
+          <a class="btn btn-lg btn-spectral-dark-teal" href="./buy.html">Book Flights Now</a>
         </div>
       </div>
     </section>
@@ -195,6 +296,32 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/web.js"></script>
+
+    <script type="text/javascript">
+      // On document ready
+      $( document ).ready(function() {
+          console.log( "ready!" );
+          // Health App
+          $("#health").click(()=>{
+            $('html, body').animate({
+                  scrollTop: $("#wrap-crop-health").offset().top
+              }, 800);
+          });
+          // Irrigation
+          $("#water").click(()=>{
+            $('html, body').animate({
+                  scrollTop: $("#wrap-irrigation").offset().top
+              }, 800);
+          });
+          // Pests
+          $("#pests").click(()=>{
+            $('html, body').animate({
+                  scrollTop: $("#wrap-pest").offset().top
+              }, 800);
+          });
+      });
+    </script>
+
 
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
