@@ -635,6 +635,9 @@ p {
   background-image: url(../img/backgrounds/vineyard2.jpeg);
   background-size: cover;
 }
+#wrap-crop-health:before {
+  background: rgba(0,0,0,0.3);
+}
 #wrap-irrigation {
   background-image: url(../img/backgrounds/impact_sprinkler.jpg);
   background-size: cover;
@@ -648,6 +651,7 @@ p {
 #wrap-disease {
   background-image: url(../img/backgrounds/disease-thin.jpg);
   background-position: center;
+  background-size: cover;
 }
 #wrap-buy {
   background-image: url(../img/backgrounds/vineyard-buy.jpg);
@@ -660,6 +664,7 @@ p {
 #wrap-intro {
   background-image: url(../img/backgrounds/vineyard-background.jpg);
   background-size: cover;
+  background-position: center;
   height: 100vh;
 }
 #wrap-solutions {
@@ -670,6 +675,9 @@ p {
   background-image: url(../img/backgrounds/soil.jpg);
   background-size: cover;
   background-position: center;
+}
+#wrap-soil:before {
+  background: rgba(0,0,0,0.3);
 }
 #wrap-weeds {
   background-image: url(../img/backgrounds/dandelion-seeds.jpg);
@@ -694,11 +702,28 @@ p {
       height: 100vh;
   }
   .wrap-image-thin {
-    height: 90vh;
+    height: 70vh;
   }
   .wrap-image-text-thin {
     padding-top: 20vh;
   }
+  #wrap-index-solution {
+    height: 120vh;
+  }
+
+  .brand-font {
+    font-size: 240%;
+  }
+
+  .brand-font-subheading {
+    font-size: 180%;
+  }
+
+  .title-div {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
 }
 .wrap-image:before{
     content: '';
@@ -707,7 +732,7 @@ p {
     right: 0;
     left: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.65);
+    background: rgba(0,0,0,0.5);
 }
 .wrap-image-text {
     color: #FFF;
