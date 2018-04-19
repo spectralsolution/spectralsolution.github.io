@@ -16,9 +16,12 @@
     <link href="css/animations.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Keen -->
+    <script src="https://d26b395fwzu5fz.cloudfront.net/4.3.0/keen.min.js"></script>
     <!-- Angular -->
     <script src="js/angular.min.js"></script>
     <script src="js/ngBuy.js"></script>
+
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-controller="buyController">
@@ -75,7 +78,7 @@
             </div>
           </div>
           <div class="col-md-8 col-md-offset-2">
-            <p>Enhance your discions today and book a series of flights. We will work with you through the whole process and ensure you understand each report.</p>
+            <p>Enhance your decisions today and book a series of flights.<br>We will work with you through the whole process and ensure you understand each report.</p>
           </div>
       </div>
     </section>
@@ -83,7 +86,7 @@
     <!-- Packages -->
     <section class="container secondary-section text-center">
       <div class="row">
-        <div class="col-lg-8 col-lg-offset-2">
+        <div class="col-lg-10 col-lg-offset-1">
           <div class="title-div">
             <h1 class="brand-font">Solution Packages</h1>
             <h2 class="brand-font-subheading">Every Flight brings insight </h2>
@@ -91,8 +94,16 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+          <p>We give you a portal account, or email you your reports a few days after a fly.</p>
+          <p>We might offer a few more things, and discuss their satisfaction and we work hard to bring the best experience possible.</p>
+          <p>Maybe mention we also will work with people wanting custom solutions in across industries.</p>
+          <button type="button" ng-click="buyNow('Ultimate Insight')" name="Package-3" class="btn btn-lg btn-spectral-dark-teal" data-toggle="modal" data-target="#buyModal"> Buy Now</button>
+        </div>
+      </div>
+      <div class="row">
         <!-- Package 1 -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <div class="panel panel-default solution-package">
             <div class="panel-body">
               <h2>Starter Flight</h2>
@@ -103,9 +114,9 @@
               <button type="button" ng-click="buyNow('Starter Flight')" name="Package-1" class="btn btn-lg btn-spectral-dark-teal" data-toggle="modal" data-target="#buyModal"> Buy Now</button>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- Package 2 -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <div class="panel panel-default solution-package">
             <div class="panel-body">
               <h2>Season Pass</h2>
@@ -116,9 +127,9 @@
               <button type="button" ng-click="buyNow('Season Pass')" name="Package-2" class="btn btn-lg btn-spectral-dark-teal" data-toggle="modal" data-target="#buyModal"> Buy Now</button>
             </div>
           </div>
-        </div>
+        </div> -->
         <!-- Package 3 -->
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
           <div class="panel panel-default solution-package">
             <div class="panel-body">
               <h2>Ultimate Insight</h2>
@@ -130,19 +141,10 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
 
-    <section class="container secondary-section text-center">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <h1>A few more things.</h1>
-          <p>We give you a portal account, or email you your reports a few days after a fly.</p>
-          <p>We might offer a few more things, and discuss their satisfaction and we work hard to bring the best experience possible.</p>
-          <p>Maybe mention we also will work with people wanting custom solutions in across industries.</p>
-        </div>
-      </div>
-    </section>
+
 
 
     <!-- Footer -->
@@ -159,37 +161,45 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h2 class="modal-title text-center" id="myModalLabel">Buy {{package}}</h2>
+          <h2 class="modal-title text-center" id="myModalLabel">Purchase Contact Form</h2>
         </div>
         <div class="modal-body">
           <!-- Form -->
           <div ng-hide="submitCompletedHide">
             <p>Fill out this business form and an expert will contact you.</p>
             <!-- Name -->
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon">Your name</span>
+            <h4 class="input-font">Your Name</h4>
+            <p class="error-text">Required</p>
+            <div class="input-group-lg">
               <input type="text" class="form-control" placeholder="" ng-model="formData.name">
             </div>
-            <!-- Email -->
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon">Contact email</span>
-              <input type="text" class="form-control" placeholder="" ng-model="formData.email">
-            </div>
-            <!-- Phone -->
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon">Phone number</span>
-              <input type="text" class="form-control" placeholder="" ng-model="formData.phone">
-            </div>
+            <br>
             <!-- Company -->
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon">Company or institution name</span>
+            <h4 class="input-font">Company or Institution Name</h4>
+            <div class="input-group-lg">
               <input type="text" class="form-control" placeholder="" ng-model="formData.company">
             </div>
+            <br>
             <!-- Address -->
-            <div class="input-group input-group-lg">
-              <span class="input-group-addon">Company Address</span>
+            <h4 class="input-font">Company Location</h4>
+            <div class="input-group-lg">
               <input type="text" class="form-control" placeholder="" ng-model="formData.address">
             </div>
+            <br>
+            <!-- Email -->
+            <h4 class="input-font">Contact E-mail</h4>
+            <p class="error-text">Required</p>
+            <div class="input-group-lg">
+              <input type="text" class="form-control" placeholder="" ng-model="formData.email">
+            </div>
+            <br>
+            <!-- Phone -->
+            <h4 class="input-font">Phone Number</h4>
+            <p class="error-text">Required</p>
+            <div class="input-group-lg">
+              <input type="text" class="form-control" placeholder="" ng-model="formData.phone">
+            </div>
+            <br>
           </div>
           <!-- Thank you -->
           <div ng-hide="submitThankYouHide" class="spectral-orange text-center">
@@ -199,8 +209,9 @@
 
         </div>
         <div class="modal-footer">
+          <button type="button" class="btn btn-lg btn-block btn-spectral-dark" ng-click="submit()" ng-hide="submitCompletedHide" ng-disabled="!(formData.name && formData.email && formData.phone)">Submit</button>
+          <br>
           <button type="button" class="btn btn-lg btn-block btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-lg btn-block btn-spectral-dark" ng-click="submit()" ng-hide="submitCompletedHide">Submit</button>
         </div>
       </div>
     </div>

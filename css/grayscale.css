@@ -641,7 +641,7 @@ p {
 #wrap-irrigation {
   background-image: url(../img/backgrounds/impact_sprinkler.jpg);
   background-size: cover;
-  /* background-position: center; */
+  background-position: center;
 }
 #wrap-pest {
   background-image: url(../img/backgrounds/Harissina_amer.jpg);
@@ -710,13 +710,16 @@ p {
   #wrap-index-solution {
     height: 120vh;
   }
+  #wrap-solutions {
+    height: 120vh;
+  }
 
   .brand-font {
     font-size: 240%;
   }
 
   .brand-font-subheading {
-    font-size: 180%;
+    font-size: 150%;
   }
 
   .title-div {
@@ -790,4 +793,14 @@ p {
 .input-group {
   padding-top: 15px;
   padding-bottom:15px;
+}
+
+.error-text {
+  color: red;
+  font-size: 16px;
+  margin-bottom: 0px;
+}
+
+.input-font {
+  margin-bottom: 5px;
 }
