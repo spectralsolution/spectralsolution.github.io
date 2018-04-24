@@ -167,49 +167,54 @@
           <!-- Form -->
           <div ng-hide="submitCompletedHide">
             <p>Fill out this business form and an expert will contact you.</p>
-            <!-- Name -->
-            <h4 class="input-font">Your Name</h4>
-            <p class="error-text">Required</p>
-            <div class="input-group-lg">
-              <input type="text" class="form-control" placeholder="" ng-model="formData.name">
-            </div>
-            <br>
-            <!-- Company -->
-            <h4 class="input-font">Company or Institution Name</h4>
-            <div class="input-group-lg">
-              <input type="text" class="form-control" placeholder="" ng-model="formData.company">
-            </div>
-            <br>
-            <!-- Address -->
-            <h4 class="input-font">Company Location</h4>
-            <div class="input-group-lg">
-              <input type="text" class="form-control" placeholder="" ng-model="formData.address">
-            </div>
-            <br>
-            <!-- Email -->
-            <h4 class="input-font">Contact E-mail</h4>
-            <p class="error-text">Required</p>
-            <div class="input-group-lg">
-              <input type="text" class="form-control" placeholder="" ng-model="formData.email">
-            </div>
-            <br>
-            <!-- Phone -->
-            <h4 class="input-font">Phone Number</h4>
-            <p class="error-text">Required</p>
-            <div class="input-group-lg">
-              <input type="text" class="form-control" placeholder="" ng-model="formData.phone">
-            </div>
-            <br>
+            <form name="myForm">
+              <!-- Name -->
+              <h4 class="input-font">Your Name</h4>
+              <p class="success-text" ng-hide="!myForm.name.$valid">Success</p>
+              <p class="error-text" ng-hide="myForm.name.$valid">Required</p>
+              <div class="input-group-lg">
+                <input type="text" name="name" class="form-control" placeholder="" ng-model="formData.name" required>
+              </div>
+              <br>
+              <!-- Email -->
+              <h4 class="input-font">Contact E-mail</h4>
+              <p class="success-text" ng-hide="!myForm.email.$valid">Valid E-mail</p>
+              <p class="error-text" ng-hide="myForm.email.$valid">Valid E-mail Required</p>
+              <div class="input-group-lg">
+                <input type="email" name="email" class="form-control" ng-model="formData.email" required>
+              </div>
+              <br>
+              <!-- Phone -->
+              <h4 class="input-font">Phone Number</h4>
+              <p class="success-text" ng-hide="!formData.phoneValid">Digits Entered</p>
+              <p class="error-text" ng-hide="formData.phoneValid">Required</p>
+              <div class="input-group-lg">
+                <input type="text" name="phone" class="form-control" placeholder="" ng-model="formData.phone" ng-change="phoneFormat()" ng-model-otions="{allowInvalid:true}" required>
+              </div>
+              <br>
+              <!-- Company -->
+              <h4 class="input-font">Company or Institution Name</h4>
+              <div class="input-group-lg">
+                <input type="text" class="form-control" placeholder="" ng-model="formData.company">
+              </div>
+              <br>
+              <!-- Address -->
+              <h4 class="input-font">Company Location</h4>
+              <div class="input-group-lg">
+                <input type="text" class="form-control" placeholder="" ng-model="formData.address">
+              </div>
+              <br>
+              <br>
+            </form>
           </div>
           <!-- Thank you -->
           <div ng-hide="submitThankYouHide" class="spectral-orange text-center">
             <h3>Thank you for you purchase request.</h3>
             <h3>We look forward to talking to you soon!</h3>
           </div>
-
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-lg btn-block btn-spectral-dark" ng-click="submit()" ng-hide="submitCompletedHide" ng-disabled="!(formData.name && formData.email && formData.phone)">Submit</button>
+          <button type="button" class="btn btn-lg btn-block btn-spectral-dark" ng-click="submit()" ng-hide="!submitThankYouHide">Submit</button>
           <br>
           <button type="button" class="btn btn-lg btn-block btn-default" data-dismiss="modal">Close</button>
         </div>

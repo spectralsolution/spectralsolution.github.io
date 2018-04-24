@@ -21,6 +21,10 @@ spectralSolution.controller('buyController', ['$scope', '$location', '$anchorScr
     $scope.submitThankYouHide = true;
     $scope.submitCompletedHide = false;
 
+    $scope.hideName = true;
+    $scope.hidePhone = true;
+    $scope.hideEmail = true;
+
     $scope.buyNow = function(buyPackage) {
       console.log('Buy');
       console.log(buyPackage);
@@ -29,29 +33,63 @@ spectralSolution.controller('buyController', ['$scope', '$location', '$anchorScr
       $scope.submitCompletedHide = false;
     };
 
-    $scope.submit = function() {
-      console.log('Submit');
-      console.log($scope.formData);
-      // change hidden buy now elements
-      $scope.submitThankYouHide = false;
-      $scope.submitCompletedHide = true;
+    // phone number regex pattern
+    $scope.phoneFormat = ()=>{
 
-      // Record an event to keen
-      // Keen setup
-      Keen.ready(function(){
-        var client = new Keen({
-          projectId: '5aa84b9bc9e77c00018ede6c',
-          writeKey: '5F4E27752330B29935F96E9ED5C38D13EA7168EBEE5C886D6AF95D2F8E994F865BD3675009A76592C1F898BBF4E5BC9AF938053E99D5CF45005367BBF7CBF9CD6ECAF892314100DDFD5838391B688F3F5E12E942B4ED9FE43894FA51B99D5B59'
-        });
+      // var phoneLength = $scope.formData.phone.toString().length;
 
-        client.recordEvent('buy-now', {
-          solutionPackage: $scope.package,
-          customerInfo: $scope.formData
-        });
-        console.log('Keen recorded');
-      });
+      number = String($scope.formData.phone);
+      number = number.replace(/[^0-9]*/g, '');
+      var formattedNumber = number;
+      number = number[0] == '1' ? number.slice(1) : number;
+
+      var area = number.substring(0, 3);
+      var front = number.substring(3, 6);
+      var end = number.substring(6, 10);
+
+      if (front) {
+          formattedNumber = ("(" + area + ") " + front);
+      }
+      if (end) {
+          formattedNumber += ("-" + end);
+      }
+
+      $scope.formData.phone = formattedNumber;
+
+      if (formattedNumber.length >= 14) {
+        $scope.formData.phoneValid = true;
+      }
+      else {
+        $scope.formData.phoneValid = false;
+      }
     };
 
+
+
+    $scope.submit = function() {
+      if ((myForm.name.$valid && myForm.email.$valid && myForm.phoneValid)) {
+        console.log('Submit Success');
+        console.log($scope.formData);
+        // change hidden buy now elements
+        $scope.submitThankYouHide = false;
+        $scope.submitCompletedHide = true;
+
+        // Record an event to keen
+        // Keen setup
+        Keen.ready(function(){
+          var client = new Keen({
+            projectId: '5aa84b9bc9e77c00018ede6c',
+            writeKey: '5F4E27752330B29935F96E9ED5C38D13EA7168EBEE5C886D6AF95D2F8E994F865BD3675009A76592C1F898BBF4E5BC9AF938053E99D5CF45005367BBF7CBF9CD6ECAF892314100DDFD5838391B688F3F5E12E942B4ED9FE43894FA51B99D5B59'
+          });
+
+          client.recordEvent('buy-now', {
+            solutionPackage: $scope.package,
+            customerInfo: $scope.formData
+          });
+          console.log('Keen recorded');
+        });
+      }
+    };
   }]);
 
   //solutions Controller
