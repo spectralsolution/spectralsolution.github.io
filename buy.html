@@ -54,9 +54,9 @@
                     <li style="padding-left:5px; padding-right5px;">
                         <a class="page-scroll active-nav" href="./buy.html">Buy Service</a>
                     </li>
-                    <li style="padding-left:5px; padding-right5px;">
+                    <!-- <li style="padding-left:5px; padding-right5px;">
                         <a class="page-scroll" href="./company.html">Company</a>
-                    </li>
+                    </li> -->
                     <li style="padding-left:5px; padding-right5px;">
                         <a class="page-scroll" href="./contact.html">Contact</a>
                     </li>
@@ -78,7 +78,7 @@
             </div>
           </div>
           <div class="col-md-8 col-md-offset-2">
-            <p>Enhance your decisions today and book a series of flights.<br>We will work with you through the whole process and ensure you understand each report.</p>
+            <p>Enhance your decisions today and book a series of flights.</p>
           </div>
       </div>
     </section>
@@ -89,16 +89,17 @@
         <div class="col-lg-10 col-lg-offset-1">
           <div class="title-div">
             <h1 class="brand-font">Solution Packages</h1>
-            <h2 class="brand-font-subheading">Every Flight brings insight </h2>
+            <h2 class="brand-font-subheading">Every Flight Brings Insight </h2>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <p>We give you a portal account, or email you your reports a few days after a fly.</p>
-          <p>We might offer a few more things, and discuss their satisfaction and we work hard to bring the best experience possible.</p>
-          <p>Maybe mention we also will work with people wanting custom solutions in across industries.</p>
-          <button type="button" ng-click="buyNow('Ultimate Insight')" name="Package-3" class="btn btn-lg btn-spectral-dark-teal" data-toggle="modal" data-target="#buyModal"> Buy Now</button>
+          <p>After every Spectral Solutions flight survey, we’ll provide:
+            <br>- <b><u>Interactive maps</u></b> with info from our analyses
+            <br>- <b><u>Detailed reports</u></b> summarizing insights from our spectral imagery
+            <br>- <b><u>Recommendations</u></b> from our team of growers, scientists and consultants</p>
+          <button type="button" ng-click="buyNow('Ultimate Insight')" name="Package-3" class="btn btn-lg btn-spectral-dark-teal" data-toggle="modal" data-target="#buyModal"> Contact us for a quote</button>
         </div>
       </div>
       <div class="row">
@@ -161,58 +162,108 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h2 class="modal-title text-center" id="myModalLabel">Purchase Contact Form</h2>
+          <h2 class="modal-title text-center" id="myModalLabel">Service Quote Form</h2>
         </div>
         <div class="modal-body">
           <!-- Form -->
           <div ng-hide="submitCompletedHide">
-            <p>Fill out this business form and an expert will contact you.</p>
+            <p>Please fill out and submit the form below. <br> A representative will contact you soon.</p>
+            <!-- Privacy Disclaimer -->
+            <div style="text-align:center;"><p><h5><b><u>DISCLAIMER</u>:</b> All of your information will be kept confidential.<br>
+            <hr>
             <form name="myForm">
               <!-- Name -->
-              <h4 class="input-font">Your Name</h4>
-              <p class="success-text" ng-hide="!myForm.name.$valid">Success</p>
-              <p class="error-text" ng-hide="myForm.name.$valid">Required</p>
+              <h4 class="input-font">Full Name</h4>
+              <p class="success-text" ng-hide="!myForm.name.$valid">Nice to meet you!</p>
+              <p class="error-text" ng-hide="myForm.name.$valid">Please enter your full name.</p>
               <div class="input-group-lg">
-                <input type="text" name="name" class="form-control" placeholder="" ng-model="formData.name" required>
+                <input type="text" name="name" class="form-control" placeholder="First and Last Name" ng-model="formData.name" required>
               </div>
               <br>
-              <!-- Email -->
-              <h4 class="input-font">Contact E-mail</h4>
-              <p class="success-text" ng-hide="!myForm.email.$valid">Valid E-mail</p>
-              <p class="error-text" ng-hide="myForm.email.$valid">Valid E-mail Required</p>
+              <!-- E-mail -->
+              <h4 class="input-font">E-mail Address</h4>
+              <p class="success-text" ng-hide="!formData.email">Thank you! We'll e-mail you soon.</p>
+              <p class="error-text" ng-hide="formData.email">Please enter your e-mail address.</p>
               <div class="input-group-lg">
-                <input type="email" name="email" class="form-control" ng-model="formData.email" required>
+                <input type="text" name="email" placeholder="e.g. info@spectral.solutions" class="form-control" ng-model="formData.email">
               </div>
               <br>
               <!-- Phone -->
               <h4 class="input-font">Phone Number</h4>
-              <p class="success-text" ng-hide="!formData.phoneValid">Digits Entered</p>
-              <p class="error-text" ng-hide="formData.phoneValid">Required</p>
+              <p class="success-text" ng-hide="!formData.phoneValid">Thank you! We might call you soon</p>
+              <p class="error-text" ng-hide="formData.phoneValid">Please enter your phone number.</p>
               <div class="input-group-lg">
-                <input type="text" name="phone" class="form-control" placeholder="" ng-model="formData.phone" ng-change="phoneFormat()" ng-model-otions="{allowInvalid:true}" required>
+                <input type="text" name="phone" class="form-control" placeholder="e.g. (530) 377-3750" ng-model="formData.phone" ng-change="phoneFormat()" ng-model-otions="{allowInvalid:true}" required>
+              </div>
+              <br>
+              <!-- Crop -->
+              <h4 class="input-font">Crop(s) of Interest</h4>
+              <div class="input-group-lg">
+                <input type="text" class="form-control" placeholder="" ng-model="formData.cropType">
+              </div>
+              <!-- Acreage -->
+              <h4 class="input-font">Approximate Acreage</h4>
+              <p class="success-text" ng-hide="formData.acreage == 0">Success</p>
+              <p class="error-text" ng-hide="formData.acreage != 0">Required</p>
+              <div class="input-group-lg">
+                <select ng-model="formData.acreage" class="form-control" name="acreage">
+                  <option value="0">Choose an acreage below</option>
+                  <option value="25">1-25 Acres</option>
+                  <option value="50">25-50 Acres</option>
+                  <option value="100">50-100 Acres</option>
+                  <option value="200">100-200 Acres</option>
+                  <option value="200+">200+ Acres</option>
+                </select>
               </div>
               <br>
               <!-- Company -->
-              <h4 class="input-font">Company or Institution Name</h4>
+              <h4 class="input-font">Background or Affiliation</h4>
               <div class="input-group-lg">
-                <input type="text" class="form-control" placeholder="" ng-model="formData.company">
+                <input type="text" class="form-control" placeholder="Owner, Grower, Researcher, Consultant, etc... of ABC Vineyards" ng-model="formData.company">
               </div>
               <br>
-              <!-- Address -->
-              <h4 class="input-font">Company Location</h4>
+              <!-- Location -->
+              <h4 class="input-font">Location</h4>
               <div class="input-group-lg">
-                <input type="text" class="form-control" placeholder="" ng-model="formData.address">
+                <input type="text" class="form-control" placeholder="City, State, Province, Country" ng-model="formData.address">
               </div>
               <br>
+              <!-- Notes -->
+              <h4 class="input-font">Additional information we should know?</h4>
+              <textarea ng-model="formData.notes" class="form-control" rows="5" placeholder=""></textarea>
               <br>
+              <br>
+              <!-- Contact Method -->
+              <h4 class="input-font">Prefered Method of Contact</h4>
+              <div class="input-group-lg">
+                <div class="text-left contact-method">
+                  <br>
+                  <label>
+                    <input type="radio" ng-model="formData.contactMethod" value="none">
+                    No Preference
+                  </label>
+                  <br/>
+                  <label>
+                    <input type="radio" ng-model="formData.contactMethod" value="phone">
+                    Phone
+                  </label>
+                  <br/>
+                  <label>
+                    <input type="radio" ng-model="formData.contactMethod" value="email">
+                    E-mail
+                  </label>
+                </div>
+                <br/>
+              </div>
             </form>
+          </div>
           </div>
           <!-- Thank you -->
           <div ng-hide="submitThankYouHide" class="spectral-orange text-center">
-            <h3>Thank you for you purchase request.</h3>
+            <h3>Thank you for your service request.</h3>
             <h3>We look forward to talking to you soon!</h3>
           </div>
-        </div>
+      </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-lg btn-block btn-spectral-dark" ng-click="submit()" ng-hide="!submitThankYouHide">Submit</button>
           <br>
@@ -221,7 +272,7 @@
       </div>
     </div>
   </div>
-
+</div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
 

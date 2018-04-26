@@ -16,8 +16,11 @@ spectralSolution.controller('buyController', ['$scope', '$location', '$anchorScr
       email:"",
       phone:"",
       company: "",
-      address:""
+      address:"",
+      contactMethod: "none",
+      acreage: "0"
     };
+
     $scope.submitThankYouHide = true;
     $scope.submitCompletedHide = false;
 
@@ -32,6 +35,7 @@ spectralSolution.controller('buyController', ['$scope', '$location', '$anchorScr
       $scope.submitThankYouHide = true;
       $scope.submitCompletedHide = false;
     };
+
 
     // phone number regex pattern
     $scope.phoneFormat = ()=>{
@@ -67,7 +71,9 @@ spectralSolution.controller('buyController', ['$scope', '$location', '$anchorScr
 
 
     $scope.submit = function() {
-      if ((myForm.name.$valid && myForm.email.$valid && myForm.phoneValid)) {
+      console.log('submit');
+
+      if (($scope.formData.email && $scope.formData.email && $scope.formData.acreage != 0 && $scope.formData.phoneValid)) {
         console.log('Submit Success');
         console.log($scope.formData);
         // change hidden buy now elements
