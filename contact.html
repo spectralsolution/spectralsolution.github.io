@@ -12,10 +12,11 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/grayscale.css" rel="stylesheet">
+    <link href="css/contact.css" rel="stylesheet">
     <!--  -->
     <link href="css/animations.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/fonts/glyphicons-halflings-regular.ttf" rel="stylesheet" type="text/css">
 
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -69,36 +70,45 @@
           <div class="wrap-image-text">
             <div class="title-div align-middle">
                 <h1 class="brand-font-white text-center">We would love to hear from you</h1>
-                <h2 class="text-center brand-font-subheading">Lets work on making the world a better place.</h2>
+                <p>If you're from a University, private industry, government, investor or seeking a job opportunity, send us an email. </p>
             </div>
           </div>
-          <div class="col-md-8 col-md-offset-2">
-            <!-- Some impactful text here -->
+          <div class="col-md-4">
+            <div class="panel panel-default  contact-panel">
+              <div class="pane-header">
+                <h3>Phone</h3>
+                <h4 class="brand-font-orange">530 377-3750</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default  contact-panel">
+              <div class="pane-header">
+                <h3>Headquarters</h3>
+                <h4 class="brand-font-orange">Davis, CA</h4>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="panel panel-default  contact-panel">
+              <div class="pane-header">
+                <h3>E-mail</h3>
+                <h4><a class="brand-font-orange" href="mailto:info@spectral.solutions">info@spectral.solutions</a></h4>
+              </div>
+            </div>
           </div>
       </div>
     </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container secondary-section text-center">
-        <div class="row">
-          <div class="col-lg-8 col-lg-offset-2">
-            <div class="title-div">
-              <h1 class="brand-font">Contact Us</h1>
-            </div>
-            <p>If you're from a University, private industry, government, investor or seeking a job opportunity, send us an email. </p>
-            <p class="text-center"><a class="brand-font-orange" href="mailto:info@spectral.solutions">info@spectral.solutions</a>
-            </p>
-          </div>
-        </div>
-    </section>
-
+    <div class="row">
+      <div id="map"></div>
+    </div>
 
 
 
     <!-- Footer -->
     <footer id="footer">
         <div class="container text-center">
-            <p style="text-align:center;">Copyright &copy; Spectral Solutions LLC 2016-2018</p>
+            <p style="text-align:center;">Copyright &copy; Spectral Solutions LLC 2018</p>
         </div>
     </footer>
 
@@ -110,6 +120,9 @@
 
     <!-- Plugin JavaScript -->
     <script src="js/jquery.easing.min.js"></script>
+
+    <!-- Google Mapis API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
 
     <!-- Custom Theme JavaScript -->
     <script src="js/web.js"></script>

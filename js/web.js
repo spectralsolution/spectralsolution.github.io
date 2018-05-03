@@ -33,3 +33,32 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
   }
 });
+
+// Google Maps API
+$(function () {
+
+    function initMap() {
+
+        var location = new google.maps.LatLng(38.5449, -121.7405);
+
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+            center: location,
+            zoom: 13,
+            panControl: false,
+            gestureHandling: 'cooperative',
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+
+        // Pushpin on davis
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(38.5449, -121.7405),
+          map: map,
+          title: 'Hello World!'
+        });
+
+    }
+
+    google.maps.event.addDomListener(window, 'load', initMap);
+});

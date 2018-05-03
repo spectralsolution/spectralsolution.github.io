@@ -1,0 +1,12 @@
+.contact-panel {
+  color: black;
+}
+
+
+@media (max-width: 1000px) {
+
+  .wrap-image {
+    height: 120vh;
+  }
+
+}

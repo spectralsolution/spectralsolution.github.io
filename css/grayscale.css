@@ -815,3 +815,11 @@ p {
 .contact-method {
   padding-left: 20%;
 }
+
+.map-box {
+  padding-top:0px;
+}
+
+#map {
+  margin-top:0px;
+}
